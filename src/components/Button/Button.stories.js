@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Button from './Button';
 
 // 스토리북에 컴포넌트 추가
