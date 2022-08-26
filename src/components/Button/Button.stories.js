@@ -1,14 +1,27 @@
 import React from 'react';
 import Button from './Button';
-import Center from '../Center/Center';
 
 export default {
   title: 'form/Button',
   component: Button,
-  decorators: [story => <Center>{story()}</Center>], //decorator로 버튼 컴포넌트에서 공통 적용
+  argTypes: {
+    variantColor: { control: 'text' },
+    children: { control: 'text' },
+    onClick: { action: 'clicked' },
+  },
 };
 
-export const Primary = () => <Button variant="primary">Primary</Button>;
-export const Secondary = () => <Button variant="secondary">Secondary</Button>;
+const Template = args => <Button {...args} />;
+
+export const Primary = Template.bind({});
+Primary.args = {
+  variantColor: 'green',
+  children: 'Primary',
+};
+export const Secondary = Template.bind({});
+Secondary.args = {
+  variantColor: 'yellow',
+  children: 'Secondary',
+};
 export const Success = () => <Button variant="success">Success</Button>;
 export const Danger = () => <Button variant="danger">Danger</Button>;
